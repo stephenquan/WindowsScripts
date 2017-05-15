@@ -222,7 +222,7 @@ function installApp {
   case "$(uname -s)" in
   MINGW*)
     echo "$1" --script $scriptsDir/silent-install-controller.qs
-    "$1" --script $scriptsDir/silent-install-controller.qs
+    timeout -sHUP 5m "$1" --script $scriptsDir/silent-install-controller.qs
     ;;
   esac
 }
